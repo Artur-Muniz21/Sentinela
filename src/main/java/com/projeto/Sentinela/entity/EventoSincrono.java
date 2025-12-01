@@ -1,6 +1,5 @@
 package com.projeto.Sentinela.entity;
 
-import com.projeto.Sentinela.enums.EventoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,9 +22,8 @@ public class EventoSincrono {
     @Column(name = "hora_evento")
     private LocalDateTime horaEvento;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(name = "evento")
-    private EventoEnum evento;
+    private Long evento;
 
     @Column(name = "valor_evento")
     private Double valorEvento;

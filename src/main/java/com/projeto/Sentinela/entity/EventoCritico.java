@@ -1,6 +1,5 @@
 package com.projeto.Sentinela.entity;
 
-import com.projeto.Sentinela.enums.EventoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,9 +22,8 @@ public class EventoCritico {
     @Column(name = "hora_evento")
     private LocalDateTime horaEvento;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(name = "evento")
-    private EventoEnum tipoEvento;
+    private Long tipoEvento;
 
     @Column(name = "valor_evento")
     private String valorEvento;

@@ -1,13 +1,13 @@
-# Etapa 1: build
-FROM maven:3.9.6-eclipse-temurin-17 AS build
+# Etapa 1: Build da aplicação
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY . .
-RUN mvn -q -DskipTests package
+COPY pom.xml .
+COPY src ./src
+RUN mvn -B -DskipTests clean package
 
-# Etapa 2: imagem final
-FROM eclipse-temurin:17-jdk
+# Etapa 2: Runtime
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]

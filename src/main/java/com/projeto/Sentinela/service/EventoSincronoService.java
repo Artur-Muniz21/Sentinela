@@ -22,4 +22,11 @@ public class EventoSincronoService {
         return repository.save(eventoSincrono);
     }
 
+    public List<EventoSincrono> listarEventosEspecificos(long id) {
+        return repository.findByEvento(id);
+    }
+
+    public Double mediaEventosEspecificos(long id) {
+        return repository.mediaValorEvento(id);
+    }
 }
